@@ -1,0 +1,30 @@
+{
+    "name": "enrise/syliusdatalayerbundle",
+    "type": "sylius-plugin",
+    "description": "Customizable Google Enhanced Ecommerce tracking in Sylius.",
+    "license": "MIT",
+    "require": {
+        "php": "^7.3|^8.0",
+        "ext-json": "*",
+        "sylius/sylius": "^1.8",
+        "twig/twig": "^2.12",
+        "webmozart/assert": "^1.9"
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.4",
+        "phpunit/phpunit": "~9.0",
+        "symplify/easy-coding-standard": "^8.3",
+        "infection/infection": "^0.21.0"
+    },
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Enrise\\SyliusDataLayerBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Enrise\\SyliusDataLayerBundle\\Tests\\": "tests/"
+        }
+    }
+}

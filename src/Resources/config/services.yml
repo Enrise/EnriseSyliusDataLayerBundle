@@ -1,0 +1,21 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+# === Data Layer resolvers === #
+  _instanceof:
+    Enrise\SyliusDataLayerBundle\Resolvers\ResolverInterface:
+      tags:
+        - 'enrise.sylius_data_layer.resolver'
+
+  Enrise\SyliusDataLayerBundle\Resolvers\ResolverManager:
+    arguments:
+      - !tagged_iterator 'enrise.sylius_data_layer.resolver'
+
+# === Twig extensions === #
+  Enrise\SyliusDataLayerBundle\Twig\:
+    resource: '../../../src/Twig/*'
+    tags:
+      - twig.extension
