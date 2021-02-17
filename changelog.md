@@ -6,5 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- If the user is not logged in, the customer ID is not pushed to the Data Layer.
+- Set minimal PHP version to 7.4
+
+## [0.1]
+
 ### Added
 - Everything
