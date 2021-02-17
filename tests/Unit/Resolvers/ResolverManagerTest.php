@@ -28,8 +28,8 @@ final class ResolverManagerTest extends MockeryTestCase
         $expected = [
             'event' => 'test',
             'pageType' => 'test',
-            'customerId' => 1,
             'ecommerce' => [3, 4],
+            'customerId' => 1,
         ];
 
         self::assertSame($expected, $dataLayer->toArray());

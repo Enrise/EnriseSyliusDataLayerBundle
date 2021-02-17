@@ -10,11 +10,11 @@ final class DataLayer
 
     private string $page;
 
-    private int $customerId;
+    private ?int $customerId;
 
     private array $ecommerce;
 
-    public function __construct(string $event, string $page, int $customerId, array $ecommerce)
+    public function __construct(string $event, string $page, ?int $customerId = null, array $ecommerce)
     {
         $this->event = $event;
         $this->page = $page;
@@ -24,12 +24,17 @@ final class DataLayer
 
     public function toArray(): array
     {
-        return [
+        $dataLayer = [
             'event' => $this->event,
             'pageType' => $this->page,
-            'customerId' => $this->customerId,
             'ecommerce' => $this->ecommerce,
         ];
+
+        if ($this->customerId !== null) {
+            $dataLayer['customerId'] = $this->customerId;
+        }
+
+        return $dataLayer;
     }
 
     public function toJson(): string
