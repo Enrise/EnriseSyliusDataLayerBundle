@@ -17,7 +17,7 @@ final class ResolverManagerTest extends MockeryTestCase
     {
         $mockResolverTrue = Mockery::mock(ResolverInterface::class);
         $mockResolverTrue->expects('supports')->with('Test\Test')->andReturnTrue();
-        $mockResolverTrue->expects('resolve')->with([1, 2])->andReturn(new DataLayer('test', 'test', 1, [3, 4]));
+        $mockResolverTrue->expects('resolve')->with([1, 2])->andReturn(new DataLayer('test', [3, 4], 'test', 1));
 
         $mockResolverFalse = Mockery::mock(ResolverInterface::class);
         $mockResolverFalse->expects('supports')->with('Test\Test')->andReturnFalse();
@@ -27,8 +27,8 @@ final class ResolverManagerTest extends MockeryTestCase
 
         $expected = [
             'event' => 'test',
-            'pageType' => 'test',
             'ecommerce' => [3, 4],
+            'pageType' => 'test',
             'customerId' => 1,
         ];
 

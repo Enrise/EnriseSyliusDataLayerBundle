@@ -8,13 +8,13 @@ final class DataLayer
 {
     private string $event;
 
-    private string $page;
+    private array $ecommerce;
+
+    private ?string $page;
 
     private ?int $customerId;
 
-    private array $ecommerce;
-
-    public function __construct(string $event, string $page, ?int $customerId = null, array $ecommerce)
+    public function __construct(string $event, array $ecommerce, ?string $page = null, ?int $customerId = null)
     {
         $this->event = $event;
         $this->page = $page;
@@ -26,9 +26,12 @@ final class DataLayer
     {
         $dataLayer = [
             'event' => $this->event,
-            'pageType' => $this->page,
             'ecommerce' => $this->ecommerce,
         ];
+
+        if ($this->page !== null) {
+            $dataLayer['pageType'] = $this->page;
+        }
 
         if ($this->customerId !== null) {
             $dataLayer['customerId'] = $this->customerId;
