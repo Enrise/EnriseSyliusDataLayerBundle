@@ -21,6 +21,7 @@ class RenderDataLayerExtension extends AbstractExtension
     {
         return [
             new TwigFunction('renderDataLayer', [$this, 'renderDataLayer'], ['is_safe' => ['html']]),
+            new TwigFunction('getDataLayer', [$this, 'getDataLayer']),
             new TwigFunction('initDataLayers', [$this, 'initDataLayers'], ['is_safe' => ['html']]),
         ];
     }
@@ -30,6 +31,13 @@ class RenderDataLayerExtension extends AbstractExtension
         $dataLayer = $this->manager->handle($location, $data);
 
         return "<script>dataLayer.push({$dataLayer->toJson()})</script>";
+    }
+    
+    public function getDataLayer(string $location, array $data = []): array
+    {
+        $dataLayer = $this->manager->handle($location, $data);
+
+        return $dataLayer->toArray();
     }
 
     public function initDataLayers(): string
