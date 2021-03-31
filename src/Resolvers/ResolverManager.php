@@ -16,7 +16,7 @@ final class ResolverManager
         $this->resolvers = $resolvers;
     }
 
-    public function handle(string $type, array $data = []): DataLayer
+    public function handle(string $type, array $data = []): DataLayerInterface
     {
         $resolver = $this->findSupportedResolver($type);
 
