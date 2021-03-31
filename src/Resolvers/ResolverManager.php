@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enrise\SyliusDataLayerBundle\Resolvers;
 
 use Enrise\SyliusDataLayerBundle\DataLayer;
+use Enrise\SyliusDataLayerBundle\DatalayerInterface;
 
 final class ResolverManager
 {
@@ -16,7 +17,7 @@ final class ResolverManager
         $this->resolvers = $resolvers;
     }
 
-    public function handle(string $type, array $data = []): DataLayerInterface
+    public function handle(string $type, array $data = []): DatalayerInterface
     {
         $resolver = $this->findSupportedResolver($type);
 
