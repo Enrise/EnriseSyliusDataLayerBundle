@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enrise\SyliusDataLayerBundle;
 
-final class DataLayer
+final class DataLayer implements DatalayerInterface
 {
     private string $event;
 

@@ -22,7 +22,7 @@ declare(strict_types=1);
 
 namespace App\Service\DataLayer\Resolvers;
 
-use Enrise\SyliusDataLayerBundle\DataLayer;
+use Enrise\SyliusDataLayerBundle\DatalayerInterface;
 use Enrise\SyliusDataLayerBundle\Resolvers\ResolverInterface;
 
 final class ThankYouResolver implements ResolverInterface
@@ -32,7 +32,7 @@ final class ThankYouResolver implements ResolverInterface
         return $type === 'thank-you';
     }
 
-    public function resolve(array $data): DataLayer
+    public function resolve(array $data): DataLayerInterface
     {
         $order = $data['order'];
 
