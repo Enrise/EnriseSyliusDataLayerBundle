@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Enrise\SyliusDataLayerBundle\Resolvers;
 
-use Enrise\SyliusDataLayerBundle\DataLayer;
 use Enrise\SyliusDataLayerBundle\DatalayerInterface;
 
 final class ResolverManager
